@@ -14,16 +14,19 @@ Page({
   },
 
   onTapLendBook:function(e){
+    var that=this;
     console.log("借书成功");
     tt.request({
-      url: '127.0.0.1:8080/', // 目标服务器url
+      url: 'http://127.0.0.1:8080/user/login', // 目标服务器url
       data:{
         username:'alice',
         password:'123456'
       },
       success: (res) => {
-        console.log("request成功")
-        
+        console.log(res)
+        that.setData({
+          name:res.data.message
+        })
       }
     });
   }
