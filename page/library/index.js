@@ -2,9 +2,9 @@ const app = getApp()
 
 Page({
   data: {
-    book:'../../images/book.png',
-    name:'书名',
-    author:'作者',
+    book:'../../image/book.png',
+    avi:'可借阅图书',
+    lended:'借出图书',
     date:'上架日期',
     state:'状态'
   },
@@ -17,7 +17,7 @@ Page({
     var that=this;
     console.log("借书成功");
     tt.request({
-      url: 'http://127.0.0.1:8080/user/login', // 目标服务器url
+      url: 'http://localhost:8080/user/login', // 目标服务器url
       data:{
         username:'alice',
         password:'123456'
