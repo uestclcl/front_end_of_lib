@@ -17,6 +17,16 @@
 							<image src="{{book1}}" />
 						</view>
 					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item {{item}}">
+							<image src="{{book2}}" />
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item {{item}}">
+							<image src="{{book3}}" />
+						</view>
+					</swiper-item>
 				</block>
 			</swiper>
 		</view>
