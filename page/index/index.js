@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    book:'../../image/book.png',
+    book: '../../image/book.png',
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
@@ -14,7 +14,6 @@ Page({
     state:'状态',
     avalible:"可借图书",
     lended:"已借图书"
-
   },
 
   onLoad: function () {
