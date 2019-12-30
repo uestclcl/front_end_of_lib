@@ -5,6 +5,9 @@ const app = getApp()
 Page({
   data: {
     book:'../../image/book.png',
+    book1: '../../image/book1.jpg',
+    book2: '../../image/book2.jpg',
+    book3: '../../image/book3.jpg',
     name:'书名',
     author:'作者',
     date:'上架日期',

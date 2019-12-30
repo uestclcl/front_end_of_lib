@@ -1,9 +1,9 @@
 <import src="../common/head.ttml" />
 <import src="../common/foot.ttml" />
+<view class=intro>图书信息</view>
 
-<view class="intro">图书信息</view>
 <image src="{{book}}"/>
-<view>{{name}}</view>
+<view class=intro>{{name}}</view>
 <view>{{author}}</view>
 <view>{{date}}</view>
 <view>{{state}}</view>
