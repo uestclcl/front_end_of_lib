@@ -9,8 +9,7 @@
 	<template is="head" data="{{title: 'swiper'}}" />
 	<view class="page-body">
 		<view class="page-section page-section-spacing swiper">
-			<swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" bindchange="currentChange" autoplay="{{autoplay}}" interval="{{interval}}"
-			 duration="{{duration}}">
+			<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}" >
 				<block tt:for="{{background}}" tt:key="*this">
 					<swiper-item>
 						<view class="swiper-item {{item}}">
