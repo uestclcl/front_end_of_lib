@@ -1,0 +1,28 @@
+<import src="../common/head.ttml" />
+<import src="../common/foot.ttml" />
+<view class=intro>图书信息</view>
+
+<image src="{{book}}"/>
+<view class=intro>{{name}}</view>
+<view class=intro>{{author}}</view>
+<view class=intro>{{date}}</view>
+<view class=intro>{{state}}</view>
+<button type="mini" size="default" bindtap="onTapLendBook"> 借书 </button>
+ 
+<view class="container">
+  <template is="head" data="{{title: 'Login'}}"/>
+ <view class="page-body">
+    <view class="page-section">
+      <block tt:if="{{hasLogin == true}}">
+        <text class="page-body-title">{{has_login}}</text>
+        <text class="page-body-text">{{has_login_tip}}</text>
+	      <text class="page-body-text" tt:if="{{code !== ''}}">code: {{code}}</text>
+      </block>
+      <block tt:if="{{hasLogin == false}}">
+          <text class="page-body-text">{{no_login_tip}}</text>
+          <button class="page-body-button" type="primary" bindtap="login">{{login}}</button>
+      </block>
+    </view>
+  </view>
+  <template is="foot" />
+</view>

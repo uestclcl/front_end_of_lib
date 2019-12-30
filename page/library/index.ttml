@@ -1,0 +1,33 @@
+<import src="../common/head.ttml" />
+<import src="../common/foot.ttml" />
+
+<view class="intro">图书列表</view>
+<view>{{avi}}</view>
+<view>{{lended}}</view>
+
+<view class="container">
+	<template is="head" data="{{title: 'swiper'}}" />
+	<view class="page-body">
+		<view class="page-section page-section-spacing swiper">
+			<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}" >
+				<block tt:for="{{background}}" tt:key="*this">
+					<swiper-item>
+						<view class="swiper-item {{item}}">
+							<image mode="widthFix" src="{{book1}}" />
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item {{item}}">
+							<image mode="widthFix" src="{{book2}}" />
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="swiper-item {{item}}">
+							<image mode="widthFix" src="{{book3}}" />
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<template is="foot" />
+	</view>
