@@ -14,7 +14,7 @@
 				<block tt:for="{{background}}" tt:key="*this">
 					<swiper-item>
 						<view class="swiper-item {{item}}">
-							<image src="{{book1}}" class="bg {{isIphoneX?'fix-iphonex-button':''}}"/>
+							<image src="{{book1}}" />
 						</view>
 					</swiper-item>
 				</block>

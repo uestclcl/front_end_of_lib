@@ -6,6 +6,8 @@ Page({
   data: {
     book: '../../image/book.png',
     book1: '../../image/book1.jpg',
+    book2: '../../image/book2.jpg',
+    book3: '../../image/book3.jpg',
     avi: '可借阅图书',
     lended: '借出图书',
     date: '上架日期',
@@ -17,7 +19,7 @@ Page({
     autoplay: false,
     interval: 2000,
     duration: 500,
-    // ...swiper
+    ...swiper
   },
 
   onLoad: function () {
