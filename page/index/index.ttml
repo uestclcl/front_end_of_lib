@@ -2,11 +2,11 @@
 <import src="../common/foot.ttml" />
 <view class=intro>图书信息</view>
 
-<image src="{{book}}"/>
-<view class=intro>{{name}}</view>
-<view class=intro>{{author}}</view>
-<view class=intro>{{date}}</view>
-<view class=intro>{{state}}</view>
+<image class=intro src="{{book}}"/>
+<view >{{name}}:</view>
+<view >{{author}}:</view>
+<view >{{date}}:</view>
+<view >{{state}}:</view>
 <button type="mini" size="default" bindtap="onTapLendBook"> 借书 </button>
  
 <view class="container">
