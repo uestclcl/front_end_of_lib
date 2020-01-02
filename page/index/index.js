@@ -137,53 +137,36 @@ Page({
 
   borrowBook: function (e) {
     
-    var that = this;
-    tt.checkSession({
-      success: res => {
-    console.log("借书成功");
-    tt.request({
-      url: 'http://localhost:8080/user/login', // 目标服务器url
-      data: {
-        username: 'alice',
-        password: '123456'
-      },
-      success: (res) => {
-        console.log(res)
-        that.setData({
-          name: res.data.message
-        })
-      }
-    });
-    },
-      fail: function () {
-            tt.login({
-      success: function (res) {
-        if (res.code) {
-          that.setData({
-            hasLogin: true,
-            code: res.code
-          });
+console.log('getUserInfo start');
+		tt.login({
+			success: function (res) {
+				tt.getUserInfo({
+					withCredentials: that.data.withCredentials,
+					success: function (res) {
+						console.log('getUserInfo success')
+						console.log(arguments);
+						tt.showToast({
+							title: 'success'
+						});
+						that.setData({
+							hasUserInfo: true,
+							userInfo: res.userInfo,
+							rawData: res.rawData ? res.rawData : "",
+							signature: res.signature ? res.signature : "",
+							encryptedData: res.encryptedData ? res.encryptedData : "",
+							iv: res.iv ? res.iv : ""
+						});
+					},
+					fail() {
+						console.log('getUserInfo fail')
+					}
+				});
+			}, fail: function () {
+				console.log(`login fail`);
+			}
+		});
 
-          try {
-            tt.setStorageSync('login.code', res.code);
-          } catch (error) {
-            console.log(`setStorageSync failed`);
-          }
-
-        } else {
-          tt.showModal({
-            title: 'function call success, but login failed.'
-          });
-        }
-      },
-      fail: function () {
-        tt.showModal({
-          title: 'login failed.'
-        });
-      }
-    })
-      }
-    })
+		console.log('getUserInfo end')
 
     
   },
