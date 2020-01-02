@@ -135,7 +135,7 @@ Page({
     // })
   },
 borrowBook: function (e) {
-// console.log(tt.usname);
+console.log(this.data.userInfo.nickName);
 // console.log(userInfo.nickName);
 // console.log({{userInfo.nickName}});
 console.log("请求借书");
