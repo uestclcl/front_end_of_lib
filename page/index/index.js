@@ -1,6 +1,7 @@
 import i18n from '../i18n/index'
 const iLogin = i18n.login
 const app = getApp()
+const iGetUserInfo = i18n.get_user_info
 
 Page({
   data: {
@@ -8,6 +9,7 @@ Page({
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
+    usname:'用户',
     name: '书名',
     author: '作者',
     date: '上架日期',
@@ -16,9 +18,51 @@ Page({
     lended: "已借图书",
     hasLogin: false,
     code: tt.getStorageSync('login.code'),
-    ...iLogin
+    ...iLogin,
+    		hasUserInfo: false,
+		withCredentials: false,
+		userInfo: {},
+		rawData: "",
+		signature: "",
+		encryptedData: "",
+		iv: "",
+		...iGetUserInfo
   },
+// -------------------------------------------
+	getUserInfo: function () {
+		var that = this;
+		console.log('getUserInfo start');
+		tt.login({
+			success: function (res) {
+				tt.getUserInfo({
+					withCredentials: that.data.withCredentials,
+					success: function (res) {
+						console.log('getUserInfo success')
+						console.log(arguments);
+						tt.showToast({
+							title: 'success'
+						});
+						that.setData({
+							hasUserInfo: true,
+							userInfo: res.userInfo,
+							rawData: res.rawData ? res.rawData : "",
+							signature: res.signature ? res.signature : "",
+							encryptedData: res.encryptedData ? res.encryptedData : "",
+							iv: res.iv ? res.iv : ""
+						});
+					},
+					fail() {
+						console.log('getUserInfo fail')
+					}
+				});
+			}, fail: function () {
+				console.log(`login fail`);
+			}
+		});
 
+		console.log('getUserInfo end')
+	},  
+// -------------------------------------------
 checkSession: function () {
     tt.checkSession({
       success: res => {
