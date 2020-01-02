@@ -4,10 +4,9 @@
 <view class=intro>图书信息</view>
 
 <image class=intro src="{{book}}"/>
-<view >{{name}}:</view>
-<view >{{author}}:</view>
-<view >{{date}}:</view>
-<view >{{state}}:</view>
+<view class="label">书名：{{name}}</view>
+<view class="label">作者：{{author}}</view>
+<view class="label">上架时间：{{addedTime}}</view>
 <button type="mini" size="default" bindtap="onTapLendBook"> 借书 </button>
 
 <button type="mini" size="default" bindtap="checkSession"> 检查登陆 </button>

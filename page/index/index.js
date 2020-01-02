@@ -14,7 +14,7 @@ Page({
     name: '书名',
 
     author: '作者',
-    date: '上架日期',
+    addedTime: '上架日期',
     state: '状态',
     avalible: "可借图书",
     lended: "已借图书",
@@ -87,8 +87,8 @@ checkSession: function () {
 
     var that = this;
     tt.checkSession({
-      success: function () {
-        console.log('session not expired.');
+      success: function (res) {
+        console.log(res);
         that.setData({
           hasLogin: true
         });
