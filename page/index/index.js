@@ -134,41 +134,11 @@ Page({
     //   }
     // })
   },
-
-  borrowBook: function (e) {
-    
-console.log('getUserInfo start');
-		tt.login({
-			success: function (res) {
-				tt.getUserInfo({
-					withCredentials: that.data.withCredentials,
-					success: function (res) {
-						console.log('getUserInfo success')
-						console.log(arguments);
-						tt.showToast({
-							title: 'success'
-						});
-						that.setData({
-							hasUserInfo: true,
-							userInfo: res.userInfo,
-							rawData: res.rawData ? res.rawData : "",
-							signature: res.signature ? res.signature : "",
-							encryptedData: res.encryptedData ? res.encryptedData : "",
-							iv: res.iv ? res.iv : ""
-						});
-					},
-					fail() {
-						console.log('getUserInfo fail')
-					}
-				});
-			}, fail: function () {
-				console.log(`login fail`);
-			}
-		});
-
-		console.log('getUserInfo end')
-
-    
+borrowBook: function (e) {
+// console.log(tt.usname);
+// console.log(userInfo.nickName);
+// console.log({{userInfo.nickName}});
+console.log("请求借书");
   },
 
 
