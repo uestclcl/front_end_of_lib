@@ -1,5 +1,6 @@
 <import src="../common/head.ttml" />
 <import src="../common/foot.ttml" />
+<view >{{userInfo.nickName}}你好,</view>
 <view class=intro>图书信息</view>
 
 <image class=intro src="{{book}}"/>
@@ -8,7 +9,26 @@
 <view >{{date}}:</view>
 <view >{{state}}:</view>
 <button type="mini" size="default" bindtap="onTapLendBook"> 借书 </button>
- 
+
+<button type="mini" size="default" bindtap="checkSession"> 检查登陆 </button>
+
+<button type="warn" bindtap="getUserInfo">{{get_user_info}}</button>
+
+<!-- <view class="container">
+  <template is="head" data="{{title: 'Login'}}"/>
+ <view class="page-body">
+    <view class="page-section">
+      <block tt:if="{{hasLogin == true}}">
+        <text class="page-body-title">{{has_login}}</text>
+        <text class="page-body-text">{{has_login_tip}}</text>
+	      <text class="page-body-text" tt:if="{{code !== ''}}">code: {{code}}</text>
+      </block>
+      <block tt:if="{{hasLogin == false}}">
+          <text class="page-body-text">{{no_login_tip}}</text>
+          <button class="page-body-button" type="primary" bindtap="login">{{login}}</button>
+      </block>
+    </view>
+  </view>
 
   <template is="foot" />
-</view>
+</view> -->

@@ -1,6 +1,7 @@
 import i18n from '../i18n/index'
 const iLogin = i18n.login
 const app = getApp()
+const iGetUserInfo = i18n.get_user_info
 
 Page({
   data: {
@@ -8,8 +9,10 @@ Page({
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
-    bookId:"123",
-    name:"书名",
+
+    usname:'用户',
+    name: '书名',
+
     author: '作者',
     date: '上架日期',
     state: '状态',
@@ -17,9 +20,68 @@ Page({
     lended: "已借图书",
     hasLogin: false,
     code: tt.getStorageSync('login.code'),
-    ...iLogin
+    ...iLogin,
+    		hasUserInfo: false,
+		withCredentials: false,
+		userInfo: {},
+		rawData: "",
+		signature: "",
+		encryptedData: "",
+		iv: "",
+		...iGetUserInfo
   },
+// -------------------------------------------
+	getUserInfo: function () {
+		var that = this;
+		console.log('getUserInfo start');
+		tt.login({
+			success: function (res) {
+				tt.getUserInfo({
+					withCredentials: that.data.withCredentials,
+					success: function (res) {
+						console.log('getUserInfo success')
+						console.log(arguments);
+						tt.showToast({
+							title: 'success'
+						});
+						that.setData({
+							hasUserInfo: true,
+							userInfo: res.userInfo,
+							rawData: res.rawData ? res.rawData : "",
+							signature: res.signature ? res.signature : "",
+							encryptedData: res.encryptedData ? res.encryptedData : "",
+							iv: res.iv ? res.iv : ""
+						});
+					},
+					fail() {
+						console.log('getUserInfo fail')
+					}
+				});
+			}, fail: function () {
+				console.log(`login fail`);
+			}
+		});
 
+		console.log('getUserInfo end')
+	},  
+// -------------------------------------------
+checkSession: function () {
+    tt.checkSession({
+      success: res => {
+        console.log(JSON.stringify(res))
+        tt.showModal({
+          title: 'success',
+        })
+      },
+      fail: res => {
+        console.log(JSON.stringify(res))
+        tt.showModal({
+          title: 'fail',
+        })
+      }
+    })
+  },
+  
   onLoad: function () {
     console.log('Welcome to Mini Code')
 
@@ -42,8 +104,12 @@ Page({
   },
 
   onTapLendBook: function (e) {
+    
     var that = this;
-    console.log(tt.getStorageSync('session_id'));
+
+    tt.checkSession({
+      success: res => {
+    console.log("借书成功");
 
     tt.request({
       url: 'http://localhost:8080/users/book/'+that.data.bookId, // 目标服务器url
@@ -57,6 +123,38 @@ Page({
         })
       }
     });
+    },
+      fail: function () {
+            tt.login({
+      success: function (res) {
+        if (res.code) {
+          that.setData({
+            hasLogin: true,
+            code: res.code
+          });
+
+          try {
+            tt.setStorageSync('login.code', res.code);
+          } catch (error) {
+            console.log(`setStorageSync failed`);
+          }
+
+        } else {
+          tt.showModal({
+            title: 'function call success, but login failed.'
+          });
+        }
+      },
+      fail: function () {
+        tt.showModal({
+          title: 'login failed.'
+        });
+      }
+    })
+      }
+    })
+
+    
   },
 
 
