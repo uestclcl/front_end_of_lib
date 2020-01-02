@@ -22,9 +22,28 @@ Page({
     ...swiper
   },
 
+  checkSession: function () {
+    tt.checkSession({
+      success: res => {
+        console.log(JSON.stringify(res))
+        tt.showModal({
+          title: 'success',
+        })
+      },
+      fail: res => {
+        console.log(JSON.stringify(res))
+        tt.showModal({
+          title: 'fail',
+        })
+      }
+    })
+  },
+
   onLoad: function () {
     console.log('Welcome to Mini Code')
   },
+
+  
 
   onTapLendBook: function (e) {
     var that = this;
