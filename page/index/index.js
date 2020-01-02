@@ -100,7 +100,7 @@ checkSession: function () {
     })
   },
 
-  onTapLendBook: function (e) {
+  borrowBook: function (e) {
     
     var that = this;
     tt.checkSession({

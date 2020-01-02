@@ -8,7 +8,7 @@
 <view >{{author}}:</view>
 <view >{{date}}:</view>
 <view >{{state}}:</view>
-<button type="mini" size="default" bindtap="onTapLendBook"> 借书 </button>
+<button type="mini" size="default" bindtap="borrowBook"> 借书 </button>
 <button type="mini" size="default" bindtap="checkSession"> 检查登陆 </button>
 
 <button type="warn" bindtap="getUserInfo">{{get_user_info}}</button>
