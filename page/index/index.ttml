@@ -4,12 +4,12 @@
 <view class=intro>图书信息</view>
 
 <image class=intro src="{{book}}"/>
-<view >{{name}}:</view>
+<view >{{bookname}}:</view>
 <view >{{author}}:</view>
 <view >{{date}}:</view>
 <view >{{state}}:</view>
 <button type="mini" size="default" bindtap="borrowBook"> 借书 </button>
-<button type="mini" size="default" bindtap="checkSession"> 检查登陆 </button>
+<!-- <button type="mini" size="default" bindtap="checkSession"> 检查登陆 </button> -->
 
 <button type="warn" bindtap="getUserInfo">{{get_user_info}}</button>
 

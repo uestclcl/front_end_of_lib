@@ -9,8 +9,9 @@ Page({
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
+    
     usname:'用户',
-    name: '书名',
+    bookname: '书名',
     author: '作者',
     date: '上架日期',
     state: '状态',
@@ -63,41 +64,75 @@ Page({
 		console.log('getUserInfo end')
 	},  
 // -------------------------------------------
-checkSession: function () {
-    tt.checkSession({
-      success: res => {
-        console.log(JSON.stringify(res))
-        tt.showModal({
-          title: 'success',
-        })
-      },
-      fail: res => {
-        console.log(JSON.stringify(res))
-        tt.showModal({
-          title: 'fail',
-        })
-      }
-    })
-  },
+// checkSession: function () {
+//     tt.checkSession({
+//       success: res => {
+//         console.log(JSON.stringify(res))
+//         tt.showModal({
+//           title: 'success',
+//         })
+//       },
+//       fail: res => {
+//         console.log(JSON.stringify(res))
+//         tt.showModal({
+//           title: 'fail',
+//         })
+//       }
+//     })
+//   },
   
   onLoad: function () {
     console.log('Welcome to Mini Code')
 
     var that = this;
-    tt.checkSession({
-      success: function () {
-        console.log('session not expired.');
-        that.setData({
-          hasLogin: true
-        });
-      },
-      fail: function () {
-        console.log('session expired');
-        that.setData({
-          hasLogin: false
-        });
-      }
-    })
+    
+ // ----------------------------------------
+    console.log('getUserInfo start');
+		tt.login({
+			success: function (res) {
+				tt.getUserInfo({
+					withCredentials: that.data.withCredentials,
+					success: function (res) {
+						console.log('getUserInfo success')
+						console.log(arguments);
+						tt.showToast({
+							title: 'success'
+						});
+						that.setData({
+							hasUserInfo: true,
+							userInfo: res.userInfo,
+							rawData: res.rawData ? res.rawData : "",
+							signature: res.signature ? res.signature : "",
+							encryptedData: res.encryptedData ? res.encryptedData : "",
+							iv: res.iv ? res.iv : ""
+						});
+					},
+					fail() {
+						console.log('getUserInfo fail')
+					}
+				});
+			}, fail: function () {
+				console.log(`login fail`);
+			}
+		});
+
+		console.log('getUserInfo end')
+// -----------------------------------------
+
+    // tt.checkSession({
+    //   success: function () {
+    //     console.log('session not expired.');
+    //     that.setData({
+    //       hasLogin: true
+    //     });
+    //   },
+    //   fail: function () {
+    //     console.log('session expired');
+    //     that.setData({
+    //       hasLogin: false
+    //     });
+    //   }
+    // })
   },
 
   borrowBook: function (e) {
