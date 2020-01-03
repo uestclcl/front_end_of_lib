@@ -120,6 +120,29 @@ Page({
 // 		});
 
 
+    // tt.checkSession({
+    //   success: function () {
+    //     console.log('session not expired.');
+    //     that.setData({
+    //       hasLogin: true
+    //     });
+    //   },
+    //   fail: function () {
+    //     console.log('session expired');
+    //     that.setData({
+    //       hasLogin: false
+    //     });
+    //   }
+    // })
+  },
+borrowBook: function (e) {
+console.log(this.data.userInfo.nickName);
+// console.log(userInfo.nickName);
+// console.log({{userInfo.nickName}});
+console.log("请求借书");
+  },
+
+
 // 		console.log('getUserInfo end')
 // // -----------------------------------------
 
