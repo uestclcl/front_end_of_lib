@@ -19,6 +19,7 @@ Page({
     state: '可借',
     avalible: "可借图书",
     lended: "已借图书",
+    submit:"借书",
     hasLogin: false,
     code: tt.getStorageSync('login.code'),
     ...iLogin,
@@ -134,7 +135,7 @@ Page({
     //     });
     //   }
     // })
-  },
+    // },
 borrowBook: function (e) {
 console.log(this.data.userInfo.nickName);
 // console.log(userInfo.nickName);
@@ -171,7 +172,9 @@ onBorrowBook: function (e) {
       },
       success: (res) => {
         if(res.data=='借书成功'){
+          
           this.setData({
+            submit:'还书',
             state:'已借出'
           })
         }
