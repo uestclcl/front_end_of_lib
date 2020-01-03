@@ -12,11 +12,11 @@ Page({
 
     
     usname:'用户',
-    bookname: '书名',
-
-    author: '作者',
-    addedTime: '上架日期',
-    state: '状态',
+    bookname: '程序员的自我修养',
+    bookId:'12345',
+    author: '蒲云强',
+    addedTime: '2019-12-11',
+    state: '可借',
     avalible: "可借图书",
     lended: "已借图书",
     hasLogin: false,
@@ -32,39 +32,39 @@ Page({
 		...iGetUserInfo
   },
 // -------------------------------------------
-	getUserInfo: function () {
-		var that = this;
-		console.log('getUserInfo start');
-		tt.login({
-			success: function (res) {
-				tt.getUserInfo({
-					withCredentials: that.data.withCredentials,
-					success: function (res) {
-						console.log('getUserInfo success')
-						console.log(arguments);
-						tt.showToast({
-							title: 'success'
-						});
-						that.setData({
-							hasUserInfo: true,
-							userInfo: res.userInfo,
-							rawData: res.rawData ? res.rawData : "",
-							signature: res.signature ? res.signature : "",
-							encryptedData: res.encryptedData ? res.encryptedData : "",
-							iv: res.iv ? res.iv : ""
-						});
-					},
-					fail() {
-						console.log('getUserInfo fail')
-					}
-				});
-			}, fail: function () {
-				console.log(`login fail`);
-			}
-		});
+	// getUserInfo: function () {
+	// 	var that = this;
+	// 	console.log('getUserInfo start');
+	// 	tt.login({
+	// 		success: function (res) {
+	// 			tt.getUserInfo({
+	// 				withCredentials: that.data.withCredentials,
+	// 				success: function (res) {
+	// 					console.log('getUserInfo success')
+	// 					console.log(arguments);
+	// 					tt.showToast({
+	// 						title: 'success'
+	// 					});
+	// 					that.setData({
+	// 						hasUserInfo: true,
+	// 						userInfo: res.userInfo,
+	// 						rawData: res.rawData ? res.rawData : "",
+	// 						signature: res.signature ? res.signature : "",
+	// 						encryptedData: res.encryptedData ? res.encryptedData : "",
+	// 						iv: res.iv ? res.iv : ""
+	// 					});
+	// 				},
+	// 				fail() {
+	// 					console.log('getUserInfo fail')
+	// 				}
+	// 			});
+	// 		}, fail: function () {
+	// 			console.log(`login fail`);
+	// 		}
+	// 	});
 
-		console.log('getUserInfo end')
-	},  
+	// 	console.log('getUserInfo end')
+	// },  
 // -------------------------------------------
 // checkSession: function () {
 //     tt.checkSession({
@@ -83,101 +83,107 @@ Page({
 //     })
 //   },
   
-  onLoad: function () {
-    console.log('Welcome to Mini Code')
+//   onLoad: function () {
+//     console.log('Welcome to Mini Code')
 
-    var that = this;
+//     var that = this;
 
     
- // ----------------------------------------
-    console.log('getUserInfo start');
-		tt.login({
-			success: function (res) {
-				tt.getUserInfo({
-					withCredentials: that.data.withCredentials,
-					success: function (res) {
-						console.log('getUserInfo success')
-						console.log(arguments);
-						tt.showToast({
-							title: 'success'
-						});
-						that.setData({
-							hasUserInfo: true,
-							userInfo: res.userInfo,
-							rawData: res.rawData ? res.rawData : "",
-							signature: res.signature ? res.signature : "",
-							encryptedData: res.encryptedData ? res.encryptedData : "",
-							iv: res.iv ? res.iv : ""
-						});
-					},
-					fail() {
-						console.log('getUserInfo fail')
-					}
-				});
-			}, fail: function () {
-				console.log(`login fail`);
-			}
-		});
+//  // ----------------------------------------
+//     console.log('getUserInfo start');
+// 		tt.login({
+// 			success: function (res) {
+// 				tt.getUserInfo({
+// 					withCredentials: that.data.withCredentials,
+// 					success: function (res) {
+// 						console.log('getUserInfo success')
+// 						console.log(arguments);
+// 						tt.showToast({
+// 							title: 'success'
+// 						});
+// 						that.setData({
+// 							hasUserInfo: true,
+// 							userInfo: res.userInfo,
+// 							rawData: res.rawData ? res.rawData : "",
+// 							signature: res.signature ? res.signature : "",
+// 							encryptedData: res.encryptedData ? res.encryptedData : "",
+// 							iv: res.iv ? res.iv : ""
+// 						});
+// 					},
+// 					fail() {
+// 						console.log('getUserInfo fail')
+// 					}
+// 				});
+// 			}, fail: function () {
+// 				console.log(`login fail`);
+// 			}
+// 		});
 
 
-		console.log('getUserInfo end')
-// -----------------------------------------
+// 		console.log('getUserInfo end')
+// // -----------------------------------------
 
-    // tt.checkSession({
-    //   success: function () {
-    //     console.log('session not expired.');
-    //     that.setData({
-    //       hasLogin: true
-    //     });
-    //   },
-    //   fail: function () {
-    //     console.log('session expired');
-    //     that.setData({
-    //       hasLogin: false
-    //     });
-    //   }
-    // })
+//     // tt.checkSession({
+//     //   success: function () {
+//     //     console.log('session not expired.');
+//     //     that.setData({
+//     //       hasLogin: true
+//     //     });
+//     //   },
+//     //   fail: function () {
+//     //     console.log('session expired');
+//     //     that.setData({
+//     //       hasLogin: false
+//     //     });
+//     //   }
+//     // })
+//   },
+
+  
+onBorrowBook: function (e) {
+    tt.request({
+      url: 'http://localhost:8080/users/book/'+this.data.bookId, // 目标服务器url
+      data:{
+        sessionId:tt.getStorageSync('session_id')
+      },
+      success: (res) => {
+        if(res.data=='借书成功'){
+          this.setData({
+            state:'已借出'
+          })
+        }
+        tt.showModal({
+          title: res.data,
+        })
+      },
+    });
   },
-borrowBook: function (e) {
-// console.log(tt.usname);
-// console.log(userInfo.nickName);
-// console.log({{userInfo.nickName}});
-console.log("请求借书");
-  },
 
-
-  login: function () {
-    var that = this
-    
+  // *************************************
+  onLoad:function(){
+    var that=this;
     tt.login({
-      success: function (res) {
-        if (res.code) {
-          console.log(res.code);
+      success(res){
+        if(res.code){
           tt.request({
             url: 'http://localhost:8080/users/login', // 目标服务器url
-            data: {
+            data:{
               code:res.code
             },
-            success: (response) => {
-              that.setData({
-                  name: response.data,
-                  hasLogin: true
-                });
-              tt.setStorageSync('session_id', response.data);
+            success: (res) => {
+              if(res.data){
+                tt.setStorageSync('session_id', res.data);
+                tt.getUserInfo({
+                  success:function(res){
+                    that.setData({
+                      userInfo:res.userInfo
+                    })
+                  }
+                })
+              }
             }
           });
-
-        } else {
-          tt.showModal({
-            title: 'function call success, but login failed.'
-          });
         }
-      },
-      fail: function (err) {
-        console.log(err);
-        tt.showModal({
-          title: 'login failed.'
-        });
       }
     })
   }
