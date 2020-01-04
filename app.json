@@ -26,6 +26,12 @@
         "iconPath": "image/library.png",
         "selectedIconPath": "image/library.png",
         "text": "library"
+      },
+      {
+        "pagePath": "page/user/index",
+        "iconPath": "image/user1.png",
+        "selectedIconPath": "image/user1.png",
+        "text": "user"
       }
     ]
   },
