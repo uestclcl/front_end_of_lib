@@ -1,4 +1,4 @@
-import i18n from '../../../i18n/index'
+import i18n from '../i18n/index'
 const iGetUserInfo = i18n.get_user_info
 
 var app = getApp()
@@ -11,6 +11,7 @@ Page({
 		signature: "",
 		encryptedData: "",
 		iv: "",
+		
 		...iGetUserInfo
 	},
 	getUserInfo: function () {
