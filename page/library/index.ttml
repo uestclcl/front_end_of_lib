@@ -31,9 +31,7 @@
 	  	<view class="title">可借图书</view>
 	  		<view class="content">
 				<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
-					<image src="{{item.bookUrl}}" mode="" />
-					<view>书名：{{item.bookName}}</view>
-					<button type="default" size="default" bindtap="OnBorrowBook">借书</button>
+					<image src="{{item.bookUrl}}" bindTap="onBorrowBook"/>
 				</block>
 		  	</view>
 		<template is="foot"/>

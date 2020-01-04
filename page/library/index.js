@@ -56,7 +56,10 @@ Page({
       pageNum:pageNum
     })
   },
-
+  //点击图书事件
+  onBorrowBook:function(e){
+    console.log(e)
+  },
   getUnBorrowedBooks:function(){
     let that=this;
     tt.request({
@@ -66,11 +69,9 @@ Page({
         pageSize:pageSize
       },
       success: (res) => {
-        console.log(res);
         that.setData({
           bookList:res.data.list
         })
-        console.log(that.data.bookList);
       }
     });
   }
