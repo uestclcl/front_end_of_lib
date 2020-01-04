@@ -28,7 +28,7 @@
 			</swiper>
 		</view>
 		</view>
-		<view class="title">可以借阅</view>
+		<view class="title">可借图书</view>
 	  	<view class="content"></view>
 		<template is="foot"/>
 	</view>

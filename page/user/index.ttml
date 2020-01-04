@@ -21,7 +21,7 @@
 
 	  	<view class="content"></view>
 
-			<button type="warn" bindtap="getUserInfo">登陆</button>
+			<!-- <button type="warn" bindtap="getUserInfo">登陆</button> -->
 
     </view>
   </view>

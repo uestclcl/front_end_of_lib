@@ -14,8 +14,42 @@ Page({
 		
 		...iGetUserInfo
 	},
-	getUserInfo: function () {
-		var that = this;
+	// getUserInfo: function () {
+	// 	var that = this;
+	// 	console.log('getUserInfo start');
+	// 	tt.login({
+	// 		success: function (res) {
+	// 			tt.getUserInfo({
+	// 				withCredentials: that.data.withCredentials,
+	// 				success: function (res) {
+	// 					console.log('getUserInfo success')
+	// 					console.log(arguments);
+	// 					tt.showToast({
+	// 						title: 'success'
+	// 					});
+	// 					that.setData({
+	// 						hasUserInfo: true,
+	// 						userInfo: res.userInfo,
+	// 						rawData: res.rawData ? res.rawData : "",
+	// 						signature: res.signature ? res.signature : "",
+	// 						encryptedData: res.encryptedData ? res.encryptedData : "",
+	// 						iv: res.iv ? res.iv : ""
+	// 					});
+	// 				},
+	// 				fail() {
+	// 					console.log('getUserInfo fail')
+	// 				}
+	// 			});
+	// 		}, fail: function () {
+	// 			console.log(`login fail`);
+	// 		}
+	// 	});
+
+	// 	console.log('getUserInfo end')
+	// },
+
+  onLoad: function () {
+    var that = this;
 		console.log('getUserInfo start');
 		tt.login({
 			success: function (res) {
@@ -46,7 +80,7 @@ Page({
 		});
 
 		console.log('getUserInfo end')
-	},
+  },
 	clear: function () {
 		this.setData({
 			hasUserInfo: false,
