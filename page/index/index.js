@@ -5,18 +5,13 @@ const iGetUserInfo = i18n.get_user_info
 
 Page({
   data: {
-    book: '../../image/book.png',
-    book1: '../../image/book1.jpg',
-    book2: '../../image/book2.jpg',
-    book3: '../../image/book3.jpg',
-
-    
+    bookUrl: '',
     usname:'用户',
-    bookname: '程序员的自我修养',
-    bookId:'12345',
-    author: '蒲云强',
-    addedTime: '2019-12-11',
-    state: '可借',
+    bookname: '',
+    bookId:'00001',
+    author: '',
+    addedTime: '',
+    state: '',
     avalible: "可借图书",
     lended: "已借图书",
     submit:"借书",
@@ -32,152 +27,17 @@ Page({
 		iv: "",
 		...iGetUserInfo
   },
-// -------------------------------------------
-	// getUserInfo: function () {
-	// 	var that = this;
-	// 	console.log('getUserInfo start');
-	// 	tt.login({
-	// 		success: function (res) {
-	// 			tt.getUserInfo({
-	// 				withCredentials: that.data.withCredentials,
-	// 				success: function (res) {
-	// 					console.log('getUserInfo success')
-	// 					console.log(arguments);
-	// 					tt.showToast({
-	// 						title: 'success'
-	// 					});
-	// 					that.setData({
-	// 						hasUserInfo: true,
-	// 						userInfo: res.userInfo,
-	// 						rawData: res.rawData ? res.rawData : "",
-	// 						signature: res.signature ? res.signature : "",
-	// 						encryptedData: res.encryptedData ? res.encryptedData : "",
-	// 						iv: res.iv ? res.iv : ""
-	// 					});
-	// 				},
-	// 				fail() {
-	// 					console.log('getUserInfo fail')
-	// 				}
-	// 			});
-	// 		}, fail: function () {
-	// 			console.log(`login fail`);
-	// 		}
-	// 	});
 
-	// 	console.log('getUserInfo end')
-	// },  
-// -------------------------------------------
-// checkSession: function () {
-//     tt.checkSession({
-//       success: res => {
-//         console.log(JSON.stringify(res))
-//         tt.showModal({
-//           title: 'success',
-//         })
-//       },
-//       fail: res => {
-//         console.log(JSON.stringify(res))
-//         tt.showModal({
-//           title: 'fail',
-//         })
-//       }
-//     })
-//   },
-  
-//   onLoad: function () {
-//     console.log('Welcome to Mini Code')
-
-//     var that = this;
-
-    
-//  // ----------------------------------------
-//     console.log('getUserInfo start');
-// 		tt.login({
-// 			success: function (res) {
-// 				tt.getUserInfo({
-// 					withCredentials: that.data.withCredentials,
-// 					success: function (res) {
-// 						console.log('getUserInfo success')
-// 						console.log(arguments);
-// 						tt.showToast({
-// 							title: 'success'
-// 						});
-// 						that.setData({
-// 							hasUserInfo: true,
-// 							userInfo: res.userInfo,
-// 							rawData: res.rawData ? res.rawData : "",
-// 							signature: res.signature ? res.signature : "",
-// 							encryptedData: res.encryptedData ? res.encryptedData : "",
-// 							iv: res.iv ? res.iv : ""
-// 						});
-// 					},
-// 					fail() {
-// 						console.log('getUserInfo fail')
-// 					}
-// 				});
-// 			}, fail: function () {
-// 				console.log(`login fail`);
-// 			}
-// 		});
-
-
-    // tt.checkSession({
-    //   success: function () {
-    //     console.log('session not expired.');
-    //     that.setData({
-    //       hasLogin: true
-    //     });
-    //   },
-    //   fail: function () {
-    //     console.log('session expired');
-    //     that.setData({
-    //       hasLogin: false
-    //     });
-    //   }
-    // })
-    // },
-borrowBook: function (e) {
-console.log(this.data.userInfo.nickName);
-// console.log(userInfo.nickName);
-// console.log({{userInfo.nickName}});
-console.log("请求借书");
-  },
-
-
-// 		console.log('getUserInfo end')
-// // -----------------------------------------
-
-//     // tt.checkSession({
-//     //   success: function () {
-//     //     console.log('session not expired.');
-//     //     that.setData({
-//     //       hasLogin: true
-//     //     });
-//     //   },
-//     //   fail: function () {
-//     //     console.log('session expired');
-//     //     that.setData({
-//     //       hasLogin: false
-//     //     });
-//     //   }
-//     // })
-//   },
-
-  
+//借书  
 onBorrowBook: function (e) {
+    var that=this;
     tt.request({
       url: 'http://localhost:8080/users/book/'+this.data.bookId, // 目标服务器url
       data:{
         sessionId:tt.getStorageSync('session_id')
       },
       success: (res) => {
-        if(res.data=='借书成功'){
-          
-          this.setData({
-            submit:'还书',
-            state:'已借出'
-          })
-        }
+        that.getBook();
         tt.showModal({
           title: res.data,
         })
@@ -185,9 +45,10 @@ onBorrowBook: function (e) {
     });
   },
 
-  // *************************************
+  //加载
   onLoad:function(){
     var that=this;
+    // 登录
     tt.login({
       success(res){
         if(res.code){
@@ -198,7 +59,8 @@ onBorrowBook: function (e) {
             },
             success: (res) => {
               if(res.data){
-                tt.setStorageSync('session_id', res.data);
+                tt.setStorageSync('session_id', res.data.sessionId);
+                tt.setStorageSync('user_id', res.data.userId);
                 tt.getUserInfo({
                   success:function(res){
                     that.setData({
@@ -206,11 +68,50 @@ onBorrowBook: function (e) {
                     })
                   }
                 })
+                that.getBook();
               }
             }
           });
         }
       }
     })
+  },
+  //获取图书信息
+  getBook:function(){
+    var that=this;
+    tt.request({
+      url: 'http://localhost:8080/users/books/'+this.data.bookId, // 目标服务器url
+      success: (res) => {
+        that.setData({
+          bookname:res.data.bookName,
+          author:res.data.author,
+          addedTime:res.data.addedTime,
+          state:res.data.borrowed?'已借出':'可借阅',
+          bookUrl:res.data.bookUrl
+        })
+        if(res.data.borrowed){
+          that.getBorrowerId();
+        }
+      }
+    });
+  },
+
+  //获取借书者的ID
+  getBorrowerId:function(){
+    var that=this;
+    tt.request({
+      url: 'http://localhost:8080/users/books/borrowed/'+this.data.bookId, // 目标服务器url
+      success: (res) => {
+        if(res.data==tt.getStorageSync('user_id')){
+          that.setData({
+            submit:"还书"
+          })
+        }else{
+          that.setData({
+            submit:"不可借"
+          })
+        }
+      }
+    });
   }
 })
