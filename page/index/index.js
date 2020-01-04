@@ -45,10 +45,23 @@ onBorrowBook: function (e) {
     });
   },
 
+  onShow:function(){
+    let that=this;
+    //设置bookId
+    let bookId=tt.getStorageSync('book_id');
+    if(bookId!=""&&bookId!=null){
+      that.setData({
+      bookId:bookId
+    })
+    }
+    that.getBook();
+  },
+
   //加载页面
-  onLoad:function(){
+  onLoad:function(options){
     var that=this;
-    // 登录
+    
+    //登录
     tt.login({
       success(res){
         if(res.code){
@@ -76,6 +89,7 @@ onBorrowBook: function (e) {
       }
     })
   },
+
   //获取图书信息
   getBook:function(){
     var that=this;
@@ -91,6 +105,10 @@ onBorrowBook: function (e) {
         })
         if(res.data.borrowed){
           that.getBorrowerId();
+        }else{
+          that.setData({
+            submit:'借书'
+          })
         }
       }
     });

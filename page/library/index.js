@@ -45,6 +45,7 @@ Page({
 
   onLoad: function () {
     console.log('Welcome to Mini Code')
+    
     this.getUnBorrowedBooks();
   },
   //下拉刷新
@@ -56,10 +57,17 @@ Page({
       pageNum:pageNum
     })
   },
+  
   //点击图书事件
   onBorrowBook:function(e){
-    console.log(e)
+    console.log(e);
+    let bookId=e.currentTarget.dataset.id;
+    tt.setStorageSync('book_id', bookId);
+    tt.switchTab({
+      url: '/page/index/index' // 指定页面的url
+    });
   },
+  
   getUnBorrowedBooks:function(){
     let that=this;
     tt.request({
