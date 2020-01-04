@@ -1,6 +1,7 @@
 import i18n from '../i18n/index'
 const swiper = i18n.swiper
 const app = getApp()
+const pageSize=3;
 
 Page({
   data: {
@@ -12,6 +13,9 @@ Page({
     lended: '借出图书',
     date: '上架日期',
     state: '状态',
+
+    pageNum:1,
+    bookList:[],
 
     background: ['demo-text-1'],
     indicatorDots: true,
@@ -41,7 +45,33 @@ Page({
 
   onLoad: function () {
     console.log('Welcome to Mini Code')
+    this.getUnBorrowedBooks();
+  },
+  //下拉刷新
+  onPullDownRefresh:function(){
+    let that=this;
+    let pageNum=that.data.pageNum+1;
+    that.getUnBorrowedBooks();
+    that.setData({
+      pageNum:pageNum
+    })
   },
 
-  
+  getUnBorrowedBooks:function(){
+    let that=this;
+    tt.request({
+      url: 'http://localhost:8080/users/books/unBorrowed', // 目标服务器url
+      data:{
+        pageNum:that.data.pageNum,
+        pageSize:pageSize
+      },
+      success: (res) => {
+        console.log(res);
+        that.setData({
+          bookList:res.data.list
+        })
+        console.log(that.data.bookList);
+      }
+    });
+  }
 })
