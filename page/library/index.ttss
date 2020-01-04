@@ -7,3 +7,8 @@ swiper{
   height:450px;
   text-align: center;
 }
+
+.title {
+  text-align: center;
+  font-size: 40rpx;
+}

@@ -1,14 +1,12 @@
 <import src="../common/head.ttml" />
 <import src="../common/foot.ttml" />
 
-<view class="intro">图书列表</view>
-<view>{{avi}}</view>
-<view>{{lended}}</view>
-
 <view class="container">
-	<template is="head" data="{{title: 'swiper'}}" />
+	<template is="head" data="" />
 	<view class="page-body">
-		<view class="page-section page-section-spacing swiper">
+		<view class="title">热门图书</view>
+		<view class="content">
+			<view class="page-section page-section-spacing swiper">
 			<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}" >
 				<block tt:for="{{background}}" tt:key="*this">
 					<swiper-item>
@@ -29,5 +27,11 @@
 				</block>
 			</swiper>
 		</view>
-		<template is="foot" />
+		</view>
+		<view class="title">我的借阅</view>
+	  	<view class="content"></view>
+	  	<view class="title">可以借阅</view>
+	  	<view class="content"></view>
+		<template is="foot"/>
 	</view>
+</view>

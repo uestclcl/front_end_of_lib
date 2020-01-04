@@ -44,22 +44,4 @@ Page({
   },
 
   
-
-  onTapLendBook: function (e) {
-    var that = this;
-    console.log("借书成功");
-    tt.request({
-      url: 'http://localhost:8080/user/login', // 目标服务器url
-      data: {
-        username: 'alice',
-        password: '123456'
-      },
-      success: (res) => {
-        console.log(res)
-        that.setData({
-          name: res.data.message
-        })
-      }
-    });
-  },
 })

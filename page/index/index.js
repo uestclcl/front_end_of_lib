@@ -45,7 +45,7 @@ onBorrowBook: function (e) {
     });
   },
 
-  //加载
+  //加载页面
   onLoad:function(){
     var that=this;
     // 登录
