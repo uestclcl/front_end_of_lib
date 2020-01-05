@@ -1,7 +1,4 @@
-import i18n from '../i18n/index'
-const iLogin = i18n.login
 const app = getApp()
-const iGetUserInfo = i18n.get_user_info
 
 Page({
   data: {
@@ -12,24 +9,15 @@ Page({
     author: '',
     addedTime: '',
     state: '',
-    avalible: "可借图书",
-    lended: "已借图书",
-    submit:"借书",
+    submit:"",
     hasLogin: false,
     code: tt.getStorageSync('login.code'),
-    ...iLogin,
-    		hasUserInfo: false,
-		withCredentials: false,
-		userInfo: {},
-		rawData: "",
-		signature: "",
-		encryptedData: "",
-		iv: "",
-		...iGetUserInfo
+    userInfo: {},
+	
   },
 
-//借书  
-onBorrowBook: function (e) {
+  //借书  
+  onBorrowBook: function (e) {
     var that=this;
     tt.request({
       url: 'http://localhost:8080/users/book/'+this.data.bookId, // 目标服务器url
@@ -60,7 +48,6 @@ onBorrowBook: function (e) {
   //加载页面
   onLoad:function(options){
     var that=this;
-    
     //登录
     tt.login({
       success(res){
@@ -74,14 +61,16 @@ onBorrowBook: function (e) {
               if(res.data){
                 tt.setStorageSync('session_id', res.data.sessionId);
                 tt.setStorageSync('user_id', res.data.userId);
+                //加载图书信息
+                that.getBook();
+                //加载用户信息
                 tt.getUserInfo({
                   success:function(res){
                     that.setData({
                       userInfo:res.userInfo
                     })
                   }
-                })
-                that.getBook();
+                });
               }
             }
           });

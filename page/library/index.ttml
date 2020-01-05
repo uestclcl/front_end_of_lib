@@ -36,6 +36,11 @@
                         <image src="{{item.bookUrl}}"/>
                     </view>
 				</block>
+				<view class="load_more" hidden="{{!loading}}">
+    				<view class="load_loading"></view>
+    				<view class="load-tips">正在加载……</view>
+  				</view>
+  				<view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view>
 		  	</view>
 
 		<template is="foot"/>
