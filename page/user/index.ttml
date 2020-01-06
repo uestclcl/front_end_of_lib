@@ -1,34 +1,43 @@
 <import src="../common/head.ttml" />
 <import src="../common/foot.ttml" />
 
-<view class="container">
 
-	<view class="page-body">
-		<view class="user-info">
-			<block tt:if="{{hasUserInfo == true}}">
-				<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-				<text class="userinfo-nickname">{{userInfo.nickName}}</text>
-			</block>		  	
-		</view>
-		<view class="borrowed-info">
-			<view class="title">我的书架</view>
-			<view class="content">
-				<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
-					<view class="section" >
-						<view class="profile">
-							<image src="{{item.bookUrl}}" mode="" class="book"/>
-							<view class="note">
-								<view class="label">{{item.bookName}}</view>
-								<view class="label">{{item.author}}</view>
-								<button type="default" size="default" bindtap="onViewBook" data-id={{item.bookId}}> 去还书 </button>
+<!-- <view class="container"> -->
+<view class="userinfo">
+	<!-- <view class="page-body"> -->
+	<!-- <view class="page-section"> -->
+	<!-- <view class="page-body-info"> -->
+	<!-- <view class="page-body-title">{{user_info}}</view> -->
+	<block tt:if="{{hasUserInfo == false}}">
+		<text class="page-body-text">{{not_acquired}}</text>
+		<text class="page-body-text">{{click_red_button}}</text>
+	</block>
+	<block tt:if="{{hasUserInfo == true}}">
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+	</block>
+	</view>
+	<!-- </view> -->
+	<!-- </view> -->
+	<view class="borrowedInfo">
+		<view class="title">我的书架</view>
+		<view class="content">
+			<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
+				<view class="section">
+					<view class="profile">
+						<image src="{{item.bookUrl}}" mode="" class="book" />
+						<view class="note">
+							<view class="label">{{item.bookName}}</view>
+							<view class="label">{{item.author}}</view>
+							<button type="default" size="default" bindtap="onViewBook" data-id={{item.bookId}}> 去还书 </button>
 							</view>
 						</view>
 					</view>	
 				</block>
 			</view>
-		</view>
-    </view>
-  </view>
+		
+    <!-- </view> -->
+  <!-- </view> -->
 
   <!-- <template is="foot" />
 </view> -->
