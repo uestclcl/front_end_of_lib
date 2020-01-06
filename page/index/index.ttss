@@ -1,4 +1,13 @@
 .intro {
-  margin: 30px;
-  text-align: center;
+text-align: center;
+  font-size: 38rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
 }
+
+.swiper_box {
+  width: 750rpx;
+  height:375rpx;}
+

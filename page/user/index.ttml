@@ -1,7 +1,21 @@
 <import src="../common/head.ttml" />
 <import src="../common/foot.ttml" />
+	<view class="userinfo">
+					<block tt:if="{{hasUserInfo == false}}">
+						<text class="page-body-text">{{not_acquired}}</text>
+						<text class="page-body-text">{{click_red_button}}</text>
+					</block>
+					<block tt:if="{{hasUserInfo == true}}">
+						<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+						<text class="userinfo-nickname">姓名：{{userInfo.nickName}}</text>
+					</block>
+	</view>
+	<view class="strong">
+		<view class="title">我的借阅</view>
+<view class="content"></view>
 
-<view class="container">
+<!-- <button type="warn" bindtap="getUserInfo">登陆</button> -->
+</view>
 
 	<view class="page-body">
 		<view class="page-section">

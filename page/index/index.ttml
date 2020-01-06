@@ -1,8 +1,10 @@
-<import src="../common/head.ttml" />
-<import src="../common/foot.ttml" />
-<view >{{userInfo.nickName}}你好,</view>
+<!-- <import src="../common/head.ttml" />
+<import src="../common/foot.ttml" /> -->
+<!-- <view >{{userInfo.nickName}}你好,</view> -->
 <view class=intro>图书信息</view>
-<image class=intro src="{{bookUrl}}"/>
+<swiper-item>
+<image  class=swiper_box src="{{bookUrl}}"/>
+</swiper-item>
 <view class="label">书名：{{bookname}}</view>
 <view class="label">作者：{{author}}</view>
 <view class="label">上架时间：{{addedTime}}</view>
