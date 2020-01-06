@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "page/index/index",
     "page/library/index",
     "page/user/index"
@@ -12,28 +12,28 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#ed4040",
+    "color": "#CCCCCC",
+    "selectedColor": "#3399CC",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "page/index/index",
-        "iconPath": "image/book2.png",
-        "selectedIconPath": "image/book2.png",
-        "text": "book"
+        "iconPath": "image/bk.png",
+        "selectedIconPath": "image/bk.png",
+        "text": "图书"
       },
       {
         "pagePath": "page/library/index",
-        "iconPath": "image/library.png",
-        "selectedIconPath": "image/library.png",
-        "text": "library"
+        "iconPath": "image/bks.png",
+        "selectedIconPath": "image/bks.png",
+        "text": "书吧"
       },
       {
         "pagePath": "page/user/index",
-        "iconPath": "image/user1.png",
-        "selectedIconPath": "image/user1.png",
-        "text": "user"
+        "iconPath": "image/us.png",
+        "selectedIconPath": "image/us.png",
+        "text": "我的"
       }
     ]
   },
