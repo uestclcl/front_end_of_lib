@@ -1,6 +1,6 @@
-<import src="../common/head.ttml" />
-<import src="../common/foot.ttml" />
-<view >{{userInfo.nickName}}你好,</view>
+<!-- <import src="../common/head.ttml" />
+<import src="../common/foot.ttml" /> -->
+<!-- <view >{{userInfo.nickName}}你好,</view> -->
 <view class=intro>图书信息</view>
 <image class=intro src="{{bookUrl}}"/>
 <view class="label">书名：{{bookname}}</view>
