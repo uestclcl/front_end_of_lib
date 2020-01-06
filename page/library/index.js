@@ -9,7 +9,10 @@ Page({
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
-    
+    avi: '可借阅图书',
+    lended: '借出图书',
+    date: '上架日期',
+    state: '状态',
 
     pageNum:1,
     bookList:[],
@@ -96,7 +99,6 @@ Page({
     });
   },
   
-  //获取第一页数据
   getUnBorrowedBooks:function(){
     let that=this;
     tt.request({
