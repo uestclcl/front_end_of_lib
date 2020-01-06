@@ -4,7 +4,7 @@
 <view class="container">
 	<template is="head" data="" />
 	<view class="page-body">
-		<view class="title">热门图书</view>
+		<!-- <view class="title">热门图书</view> -->
 		<view class="content">
 			<view class="page-section page-section-spacing swiper">
 			<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}" >
