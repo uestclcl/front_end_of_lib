@@ -2,29 +2,30 @@
 <import src="../common/foot.ttml" />
 
 <view class="container">
-
-	<view class="page-body">
-		<view class="page-section">
-			<view class="page-body-info">
-				<view class="page-body-title">{{user_info}}</view>
-				<block tt:if="{{hasUserInfo == false}}">
-					<text class="page-body-text">{{not_acquired}}</text>
-					<text class="page-body-text">{{click_red_button}}</text>
-				</block>
-				<block tt:if="{{hasUserInfo == true}}">
-					<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-					<text class="userinfo-nickname">{{userInfo.nickName}}</text>
-				</block>
-					  	<view class="title">我的借阅</view>
+	<view class="userinfo">
+		<view class="page-body">
+			<view class="page-section">
+				<view class="page-body-info">
+					<!-- <view class="page-body-title">{{user_info}}</view> -->
+					<block tt:if="{{hasUserInfo == false}}">
+						<text class="page-body-text">{{not_acquired}}</text>
+						<text class="page-body-text">{{click_red_button}}</text>
+					</block>
+					<block tt:if="{{hasUserInfo == true}}">
+						<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+						<text class="userinfo-nickname">姓名：{{userInfo.nickName}}</text>
+					</block>
+				</view>
 			</view>
 		</view>
+	</view>
+	<view class="strong">
+		<view class="title">我的借阅</view>
+</view>
+<view class="content"></view>
 
-	  	<view class="content"></view>
+<!-- <button type="warn" bindtap="getUserInfo">登陆</button> -->
+</view>
 
-			<!-- <button type="warn" bindtap="getUserInfo">登陆</button> -->
-
-    </view>
-  </view>
-
-  <!-- <template is="foot" />
+<!-- <template is="foot" />
 </view> -->
