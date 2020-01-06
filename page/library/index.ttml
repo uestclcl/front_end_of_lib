@@ -7,42 +7,43 @@
 		<!-- <view class="title">热门图书</view> -->
 		<view class="content">
 			<view class="page-section page-section-spacing swiper">
-			<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}" >
-				<block tt:for="{{background}}" tt:key="*this">
-					<swiper-item>
-						<view class="swiper-item {{item}}">
-							<image mode="widthFix" src="{{book1}}" />
-						</view>
-					</swiper-item>
-					<swiper-item>
-						<view class="swiper-item {{item}}">
-							<image mode="widthFix" src="{{book2}}" />
-						</view>
-					</swiper-item>
-					<swiper-item>
-						<view class="swiper-item {{item}}">
-							<image mode="widthFix" src="{{book3}}" />
-						</view>
-					</swiper-item>
-				</block>
-			</swiper>
+				<swiper autoplay indicator-dots="{{indicatorDots}}" circular="{{true}}">
+					<block tt:for="{{background}}" tt:key="*this">
+						<swiper-item>
+							<view class="swiper-item {{item}}">
+								<image mode="aspectFit" src="{{book1}}" />
+							</view>
+						</swiper-item>
+						<swiper-item>
+							<view class="swiper-item {{item}}">
+								<image mode="aspectFit" src="{{book2}}" />
+							</view>
+						</swiper-item>
+						<swiper-item>
+							<view class="swiper-item {{item}}">
+								<image mode="aspectFit" src="{{book3}}" />
+							</view>
+						</swiper-item>
+					</block>
+				</swiper>
 			</view>
 		</view>
-
-	  	<view class="title">可借图书</view>
-	  		<view class="content">
-				<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
-                    <view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
-                        <image src="{{item.bookUrl}}"/>
-                    </view>
-				</block>
-				<view class="load_more" hidden="{{!loading}}">
-    				<view class="load_loading"></view>
-    				<view class="load-tips">正在加载……</view>
-  				</view>
-  				<view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view>
-		  	</view>
-
-		<template is="foot"/>
 	</view>
+	</view>
+	<view class="title">可借图书</view>
+	<view class="content">
+		<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
+			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
+				<image src="{{item.bookUrl}}" />
+			</view>
+		</block>
+		<view class="load_more" hidden="{{!loading}}">
+			<view class="load_loading"></view>
+			<view class="load-tips">正在加载……</view>
+		</view>
+		<view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view>
+	</view>
+
+	<template is="foot" />
+
 </view>
