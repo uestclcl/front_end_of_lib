@@ -1,7 +1,7 @@
 @import "../common/lib/weui.wxss";
 
 page {
-  background-color: #F1F1F1;
+  background-color: #F8F8F8;
   height: 100%;
   font-size: 32rpx;
   line-height: 1.6;
@@ -15,40 +15,6 @@ button{
 }
 form{
   width: 100%;
-}
-
-.section{
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  background-color: #fff;
-  display: block; 
-  justify-content: space-around;
-}
-
-.profile{
-  display: flex;
-}
-
-.book{
-  width: 310rpx;
-  height: 350rpx;
-  margin-right: 15rpx;
-}
-
-.note{
-  margin-left: 15rpx;
-  width: 310rpx;
-}
-
-.label{
-  font-size: 40rpx;
-  text-align: center;
 }
 
 /* lib */
@@ -150,7 +116,7 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: #fff;
   width: 100%;
   padding: 50rpx 0 150rpx 0;
 }
@@ -210,6 +176,9 @@ form{
 .page-section-gap .page-section-title{
   padding-left: 0;
   padding-right: 0;
+}
+.page-section-ctn{
+
 }
 
 /* widget */

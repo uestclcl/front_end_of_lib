@@ -28,26 +28,15 @@
 				<block tt:if="{{hasUserInfo == true}}">
 					<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
 					<text class="userinfo-nickname">{{userInfo.nickName}}</text>
-				</block>		  	
-			</view>
-		</view>
-		<view class="borrowedInfo">
-			<view class="title">我的书架</view>
-			<view class="content">
-				<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
-					<view class="section" >
-						<view class="profile">
-							<image src="{{item.bookUrl}}" mode="" class="book"/>
-							<view class="note">
-								<view class="label">{{item.bookName}}</view>
-								<view class="label">{{item.author}}</view>
-								<button type="default" size="default" bindtap="onViewBook" data-id={{item.bookId}}> 去还书 </button>
-							</view>
-						</view>
-					</view>	
 				</block>
+					  	<view class="title">我的借阅</view>
 			</view>
 		</view>
+
+	  	<view class="content"></view>
+
+			<!-- <button type="warn" bindtap="getUserInfo">登陆</button> -->
+
     </view>
   </view>
 

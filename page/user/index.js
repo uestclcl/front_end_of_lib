@@ -12,13 +12,11 @@ Page({
 		encryptedData: "",
 		iv: "",
 		
-		bookList:[],
-
 		...iGetUserInfo
 	},
 
-  	onLoad: function () {
-    	var that = this;
+  onLoad: function () {
+    var that = this;
 		console.log('getUserInfo start');
 		tt.login({
 			success: function (res) {
@@ -43,24 +41,13 @@ Page({
 						console.log('getUserInfo fail')
 					}
 				});
-				that.getBorrowedBooks();
 			}, fail: function () {
 				console.log(`login fail`);
 			}
 		});
 
 		console.log('getUserInfo end')
-  	},
-
-	onViewBook:function(e){
-		console.log('查看图书事件');
-		let bookId=e.currentTarget.dataset.id;
-		tt.setStorageSync('book_id', bookId);
-    	tt.switchTab({
-      		url: '/page/index/index' // 指定页面的url
-    	});
-	},
-
+  },
 	clear: function () {
 		this.setData({
 			hasUserInfo: false,
@@ -75,21 +62,5 @@ Page({
 		this.setData({
 			withCredentials: e.detail.value
 		});
-	},
-	getBorrowedBooks:function(){
-		console.log("获取借阅的图书");
-		let that=this;
-		tt.request({
-		  url: 'http://localhost:8080/users/books/borrowed/', // 目标服务器url
-		  data:{
-			  sessionId:tt.getStorageSync('session_id')
-		  },
-		  success: (res) => {
-			  that.setData({
-				  bookList:res.data
-			  })
-		  }
-		});
-	},
-
+	}
 })
