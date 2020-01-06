@@ -1,39 +1,38 @@
 {
-  "pages": [
+  "pages":[
     "page/index/index",
     "page/library/index",
     "page/user/index"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#dc3c38",
-    "navigationBarTitleText": "马达电影",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Mini Program",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#CCCCCC",
-    "selectedColor": "#3399CC",
+    "color": "#7A7E83",
+    "selectedColor": "#ed4040",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "page/index/index",
-        "iconPath": "image/bk.png",
-        "selectedIconPath": "image/bk.png",
-        "text": "图书"
+        "iconPath": "image/book2.png",
+        "selectedIconPath": "image/book2.png",
+        "text": "book"
       },
       {
         "pagePath": "page/library/index",
-        "iconPath": "image/bks.png",
-        "selectedIconPath": "image/bks.png",
-        "text": "书吧"
+        "iconPath": "image/library.png",
+        "selectedIconPath": "image/library.png",
+        "text": "library"
       },
       {
         "pagePath": "page/user/index",
-        "iconPath": "image/us.png",
-        "selectedIconPath": "image/us.png",
-        "text": "我的"
+        "iconPath": "image/user1.png",
+        "selectedIconPath": "image/user1.png",
+        "text": "user"
       }
     ]
   },

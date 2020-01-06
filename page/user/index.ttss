@@ -18,21 +18,6 @@ form{
 }
 
 /* lib */
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 300rpx;
-  background-image: url(https://ws4.sinaimg.cn/large/006tKfTcly1g0uedgy9ewj30ku08c745.jpg);
-  background-repeat: no-repeat;
-  background-color: #f03d37;
-  background-size: 100% 300rpx;
-  background-position: center;
-  text-align: center;
-  box-sizing: border-box;
-}
-
 .strong{
   font-weight: bold;
 }
@@ -42,16 +27,12 @@ form{
 
 .title {
   text-align: center;
-  font-size: 38rpx;
-  height: 38rpx;
-  line-height: 38rpx;
-  margin-top: 50rpx;
-  margin-bottom: 20rpx;
+  font-size: 40rpx;
 }
 
 .page-body-info {
-  /* padding-bottom: 0;
-  height: 260px; */
+  padding-bottom: 0;
+  height: 260px;
 }
 .userinfo-avatar {
   border-radius: 128rpx;
@@ -68,12 +49,12 @@ form{
 	white-space: nowrap;
 }
 .container {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   min-height: 100%;
   justify-content: space-between;
   font-size: 32rpx;
-  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif; */
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 .page-head{
   padding: 60rpx 50rpx 80rpx;
@@ -98,9 +79,9 @@ form{
 }
 
 .page-body {
-  /* width: 100%;
+  width: 100%;
   flex-grow: 1;
-  overflow-x: hidden; */
+  overflow-x: hidden;
 }
 .page-body-wrapper {
   display: flex;
@@ -147,8 +128,8 @@ form{
 }
 
 .page-section{
-  /* width: 100%;
-  margin-bottom: 60rpx; */
+  width: 100%;
+  margin-bottom: 60rpx;
 }
 .page-section_center{
   display: flex;
