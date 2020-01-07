@@ -29,11 +29,13 @@
 			</view>
 		</view>
 	</view>
-	</view>
+</view>
+<!-- <view class="section"> -->
 	<view class="title">可借图书</view>
+
 	<view class="content">
 		<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
-			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
+			<view bindtap="onBorrowBook" data-id={{item.bookId}}>
 				<image mode="aspectFit" src="{{item.bookUrl}}" />
 			</view>
 		</block>
@@ -45,5 +47,5 @@
 	</view>
 
 	<template is="foot" />
-
+<!-- </view> -->
 </view>

@@ -9,5 +9,7 @@
 <view class="label">作者：{{author}}</view>
 <view class="label">上架时间：{{addedTime}}</view>
 <view class="label">状态：{{state}}</view>
-<button type="mini" size="default" bindtap="onBorrowBook" > {{submit}} </button>
 
+<view class="page__hd" style="position:fixed; bottom:0;width: 750rpx;">
+<button type="mini" size="default" bindtap="onBorrowBook" > {{submit}} </button>
+</view>
