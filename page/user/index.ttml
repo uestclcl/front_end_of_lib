@@ -27,8 +27,8 @@
 						<image src="{{item.bookUrl}}" mode="" class="book" />
 						<view class="note">
 							<view class="label">{{item.bookName}}</view>
-							<view class="label">{{item.author}}</view>
-							<button type="default" size="default" bindtap="onViewBook" data-id={{item.bookId}}> 去还书 </button>
+							<view class="label">{{item.borrowedTime}}</view>
+							<button type="default" size="default" bindtap="onReturnBook" data-id={{item.bookId}}> 还书 </button>
 							</view>
 						</view>
 					</view>	

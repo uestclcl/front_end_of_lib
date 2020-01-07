@@ -24,12 +24,12 @@ swiper{
   font-weight: bold;
 }
 
-.section{
-  margin-top: 0rpx;
+.item{
+  margin-top: 20rpx;
   background-color: #f1f1f1;
-  display: flex; 
+  display: flex;
   justify-content: space-around;
-  border-bottom:1rpx solid #f2f2f2; 
+  border-bottom:1rpx solid #f2f2f2;
 }
 
 .load_more {
