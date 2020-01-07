@@ -15,20 +15,21 @@
 		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
 		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
 	</block>
-	</view>
-	<!-- </view> -->
-	<!-- </view> -->
-	<view class="borrowedInfo">
-		<view class="title">我的书架</view>
-		<view class="content">
-			<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
-				<view class="section">
-					<view class="profile">
-						<image src="{{item.bookUrl}}" mode="" class="book" />
-						<view class="note">
-							<view class="label">{{item.bookName}}</view>
-							<view class="label">{{item.borrowedTime}}</view>
-							<button type="default" size="default" bindtap="onReturnBook" data-id={{item.bookId}}> 还书 </button>
+</view>
+<!-- </view> -->
+<!-- </view> -->
+<view class="borrowedInfo">
+	<view class="title">已借图书</view>
+	<view class="content">
+		<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
+			<view class="section">
+				<view class="profile">
+					<image src="{{item.bookUrl}}" mode="" class="book" />
+					<view class="note">
+						<view class="label">{{item.bookName}}</view>
+						<view class="sgn">借阅日期</view>
+						<view class="date_label">{{item.borrowedTime}}</view>
+						<button class="return" type="default" size="default" bindtap="onReturnBook" data-id={{item.bookId}}> 还书 </button>
 							</view>
 						</view>
 					</view>	

@@ -1,8 +1,11 @@
 .container{
   background-color: #99CCFF;
     height:450rpx;
+    width:100%;
 }
-
+.content{
+  text-align: center;
+}
 .intro {
   margin: 30px;
   text-align: center;

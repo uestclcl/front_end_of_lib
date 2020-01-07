@@ -16,8 +16,13 @@ button{
 form{
   width: 100%;
 }
-
-
+.btn {
+ color: #33FF;
+}
+.sgn{
+  color:crimson;
+  text-align: center;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -52,6 +57,10 @@ form{
   display: flex;
 }
 
+.return{
+    font-weight: bold;
+       color: #33FF;
+}
 .book{
   width: 310rpx;
   height: 350rpx;
@@ -68,7 +77,9 @@ form{
   text-align: center;
 }
 
-
+.date_label{
+  text-align: center;
+}
 .user-info{
   text-align: center;
   padding-top: 30rpx;
@@ -86,6 +97,7 @@ form{
 .title {
   text-align: center;
   font-size: 40rpx;
+    font-weight: bold;
 }
 
 

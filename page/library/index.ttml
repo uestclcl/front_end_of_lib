@@ -30,13 +30,11 @@
 			</view>
 		</view>
 	</view>
-</view>
-<!-- <view class="section"> -->
+	</view>
 	<view class="title">可借图书</view>
-
 	<view class="content">
 		<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
-			<view bindtap="onBorrowBook" data-id={{item.bookId}}>
+			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
 				<image mode="aspectFit" src="{{item.bookUrl}}" />
 			</view>
 		</block>
@@ -47,7 +45,7 @@
 		<view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view>
 	</view>
 
-
+	  	
 
 	<template is="foot" />
 

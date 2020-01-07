@@ -1,7 +1,7 @@
 import i18n from '../i18n/index'
 const swiper = i18n.swiper
 const app = getApp()
-const pageSize=2;
+const pageSize=1;
 
 Page({
   data: {
@@ -9,10 +9,7 @@ Page({
     book1: '../../image/book1.jpg',
     book2: '../../image/book2.jpg',
     book3: '../../image/book3.jpg',
-    avi: '可借阅图书',
-    lended: '借出图书',
-    date: '上架日期',
-    state: '状态',
+    
 
     pageNum:1,
     bookList:[],
@@ -46,20 +43,9 @@ Page({
   },
 
   onLoad: function () {
+    console.log('Welcome to Mini Code')
+    //初始化加载一页数据
     this.getUnBorrowedBooks();
-  },
-
-  onShow:function(){
-    //如果图书信息更新过，则重新加载图书
-    if(tt.getStorageSync('updated')==true){
-      this.setData({
-      pageNum:1,
-      loading:false,
-      loaded:false
-    })
-    this.getUnBorrowedBooks();
-    tt.setStorageSync('updated', false);
-    }
   },
 
   //上拉加载更多
@@ -110,7 +96,7 @@ Page({
     });
   },
   
-  //获取图书列表
+  //获取第一页数据
   getUnBorrowedBooks:function(){
     let that=this;
     tt.request({

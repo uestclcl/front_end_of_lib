@@ -7,6 +7,17 @@
   margin: 0px;
   text-align: center;
 }
+
+.bookName {
+  margin: 0px;
+  text-align: center;
+    font-weight: bold;
+}
+
 .pic{
   text-align: center;
+}
+.btn{
+   color: #33FF;
+     font-weight: bold;
 }
