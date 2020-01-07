@@ -1,4 +1,12 @@
 .intro {
-  margin: 30px;
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.label {
+  margin: 0px;
+  text-align: center;
+}
+.pic{
   text-align: center;
 }

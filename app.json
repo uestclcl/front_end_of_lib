@@ -20,19 +20,19 @@
       {
         "pagePath": "page/index/index",
         "iconPath": "image/bk.png",
-        "selectedIconPath": "image/bk.png",
+        "selectedIconPath": "image/bk1.png",
         "text": "图书"
       },
       {
         "pagePath": "page/library/index",
         "iconPath": "image/bks.png",
-        "selectedIconPath": "image/bks.png",
+        "selectedIconPath": "image/bks1.png",
         "text": "书吧"
       },
       {
         "pagePath": "page/user/index",
         "iconPath": "image/us.png",
-        "selectedIconPath": "image/us.png",
+        "selectedIconPath": "image/us1.png",
         "text": "我的"
       }
     ]

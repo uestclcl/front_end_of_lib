@@ -23,7 +23,7 @@ form{
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 300rpx;
+  height: 230rpx;
   background-image: url(https://ws4.sinaimg.cn/large/006tKfTcly1g0uedgy9ewj30ku08c745.jpg);
   background-repeat: no-repeat;
   background-color: #f03d37;
