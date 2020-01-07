@@ -34,7 +34,7 @@
 	<view class="content">
 		<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
 			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
-				<image src="{{item.bookUrl}}" />
+				<image mode="aspectFit" src="{{item.bookUrl}}" />
 			</view>
 		</block>
 		<view class="load_more" hidden="{{!loading}}">
