@@ -29,6 +29,7 @@ Page({
         that.getBook();
         tt.showModal({
           title: res.data,
+          showCancel:false
         })
       },
     });
