@@ -19,7 +19,7 @@
 	<!-- </view> -->
 	<!-- </view> -->
 	<view class="borrowedInfo">
-		<view class="title">我的书架</view>
+		<view class="title">已借图书</view>
 		<view class="content">
 			<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
 				<view class="section">

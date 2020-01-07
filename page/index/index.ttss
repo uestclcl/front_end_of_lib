@@ -14,7 +14,7 @@
     font-weight: bold;
 }
 .img{
-  width: 70%;
+  width: 75%;
 }
 .pic{
   text-align: center;
