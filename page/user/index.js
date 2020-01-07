@@ -29,10 +29,10 @@ Page({
 					success: function (res) {
 						console.log('getUserInfo success')
 						console.log(arguments);
-						tt.showToast({
-							title: 'success',
-							showCancel: false
-						});
+						// tt.showToast({
+						// 	title: 'success',
+						// 	showCancel: false
+						// });
 						that.setData({
 							hasUserInfo: true,
 							userInfo: res.userInfo,
@@ -110,9 +110,13 @@ Page({
 				that.setData({
 					bookList: list
 				}),
-					tt.showModal({
-						title: res.data,
-						showCancel: false
+					tt.showToast({
+						title: '归还成功', // 内容
+						//  image: '....//images/suc.png',
+						 duration:2500
+						// success: (res) => {
+
+						// }
 					});
 			}
 		});

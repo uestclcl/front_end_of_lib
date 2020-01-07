@@ -3,7 +3,7 @@
 <!-- <view >{{userInfo.nickName}}你好,</view> -->
 <!-- <view class=intro>图书信息</view> -->
 <view class="pic">
-<image mode="aspectFit" src="{{bookUrl}}"/>
+<image class="img" mode="widthFix" src="{{bookUrl}}"/>
 </view>
 <view class="bookName">{{bookname}}</view>
 <view class="label">作者：{{author}}</view>
