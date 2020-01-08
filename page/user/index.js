@@ -12,13 +12,13 @@ Page({
 		encryptedData: "",
 		iv: "",
 
-		bookList:[],
-		
+		bookList: [],
+
 		...iGetUserInfo
 	},
 
-  onLoad: function () {
-    var that = this;
+	onLoad: function () {
+		var that = this;
 		console.log('getUserInfo start');
 		tt.login({
 			success: function (res) {
@@ -29,9 +29,10 @@ Page({
 					success: function (res) {
 						console.log('getUserInfo success')
 						console.log(arguments);
-						tt.showToast({
-							title: 'success'
-						});
+						// tt.showToast({
+						// 	title: 'success',
+						// 	showCancel: false
+						// });
 						that.setData({
 							hasUserInfo: true,
 							userInfo: res.userInfo,
@@ -51,12 +52,12 @@ Page({
 		});
 
 		console.log('getUserInfo end')
-  },
+	},
 
 	//绑定还书事件
-  onReturnBook:function(e){
+	onReturnBook: function (e) {
 		console.log('还书事件');
-		let bookId=e.currentTarget.dataset.id;
+		let bookId = e.currentTarget.dataset.id;
 		this.returnBook(bookId);
 	},
 
@@ -76,43 +77,48 @@ Page({
 		});
 	},
 	//获取用户的借阅信息
-	getBorrowedBooks:function(){
+	getBorrowedBooks: function () {
 		console.log("获取借阅的图书");
-		let that=this;
+		let that = this;
 		tt.request({
-		  url: 'http://120.26.91.143:8080/users/books/borrowed/', // 目标服务器url
-		  data:{
-			  sessionId:tt.getStorageSync('session_id')
-		  },
-		  success: (res) => {
-			  that.setData({
-				  bookList:res.data
-			  })
-		  }
+			url: 'http://localhost:8080/users/books/borrowed/', // 目标服务器url
+			data: {
+				sessionId: tt.getStorageSync('session_id')
+			},
+			success: (res) => {
+				that.setData({
+					bookList: res.data
+				})
+			}
 		});
 	},
 	//还书
-	returnBook:function(bookId){
+	returnBook: function (bookId) {
 		console.log('还书');
-		let that=this;
+		let that = this;
 		tt.request({
-		  url: 'http://120.26.91.143:8080/users/book/'+bookId, // 目标服务器url
-		  method:'PUT',
-		  success: (res) => {
-			let list=that.data.bookList;
-			for(let i in list){
-				if(list[i].bookId==bookId){
-					list.splice(i,1);//i表示删除元素的位置，1表示删除个数
+			url: 'http://localhost:8080/users/book/' + bookId, // 目标服务器url
+			method: 'PUT',
+			success: (res) => {
+				let list = that.data.bookList;
+				for (let i in list) {
+					if (list[i].bookId == bookId) {
+						list.splice(i, 1);//i表示删除元素的位置，1表示删除个数
+					}
 				}
+				tt.setStorageSync('updated', true);
+				that.setData({
+					bookList: list
+				}),
+					tt.showToast({
+						title: '归还成功', // 内容
+						//  image: '....//images/suc.png',
+						 duration:2500
+						// success: (res) => {
+
+						// }
+					});
 			}
-			tt.setStorageSync('updated', true);
-			that.setData({
-				bookList:list
-			}),
-			tt.showModal({
-			  title:res.data
-			});
-		  }
 		});
 	}
 })
