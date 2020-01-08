@@ -76,7 +76,7 @@ Page({
     if(loaded==true) return;
     let pageNum=++that.data.pageNum;
     tt.request({
-      url: 'http://localhost:8080/users/books/unBorrowed', // 目标服务器url
+      url: 'http://120.26.91.143:8080/users/books/unBorrowed', // 目标服务器url
       data:{
         pageNum:pageNum,
         pageSize:pageSize
@@ -114,7 +114,7 @@ Page({
   getUnBorrowedBooks:function(){
     let that=this;
     tt.request({
-      url: 'http://localhost:8080/users/books/unBorrowed', // 目标服务器url
+      url: 'http://120.26.91.143:8080/users/books/unBorrowed', // 目标服务器url
       data:{
         pageNum:that.data.pageNum,
         pageSize:pageSize

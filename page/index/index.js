@@ -20,7 +20,7 @@ Page({
   onBorrowBook: function (e) {
     var that = this;
     tt.request({
-      url: 'http://localhost:8080/users/book/' + this.data.bookId, // 目标服务器url
+      url: 'http://120.26.91.143:8080/users/book/' + this.data.bookId, // 目标服务器url
       data: {
         sessionId: tt.getStorageSync('session_id')
       },
@@ -68,7 +68,7 @@ Page({
   login: function (code) {
     let that = this;
     tt.request({
-      url: 'http://localhost:8080/users/login', // 目标服务器url
+      url: 'http://120.26.91.143:8080/users/login', // 目标服务器url
       data: {
         code: code
       },
@@ -93,7 +93,7 @@ Page({
   getBook: function () {
     var that = this;
     tt.request({
-      url: 'http://localhost:8080/users/books/' + this.data.bookId, // 目标服务器url
+      url: 'http://120.26.91.143:8080/users/books/' + this.data.bookId, // 目标服务器url
       success: (res) => {
         that.setData({
           bookname: res.data.bookName,
@@ -111,7 +111,7 @@ Page({
   // getBorrowerId:function(){
   //   var that=this;
   //   tt.request({
-  //     url: 'http://localhost:8080/users/books/borrowed/'+this.data.bookId, // 目标服务器url
+  //     url: 'http://120.26.91.143:8080/users/books/borrowed/'+this.data.bookId, // 目标服务器url
   //     success: (res) => {
   //       if(res.data==tt.getStorageSync('user_id')){
   //         that.setData({

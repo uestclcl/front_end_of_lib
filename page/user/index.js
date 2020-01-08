@@ -81,7 +81,7 @@ Page({
 		console.log("获取借阅的图书");
 		let that = this;
 		tt.request({
-			url: 'http://localhost:8080/users/books/borrowed/', // 目标服务器url
+			url: 'http://120.26.91.143:8080/users/books/borrowed/', // 目标服务器url
 			data: {
 				sessionId: tt.getStorageSync('session_id')
 			},
@@ -97,7 +97,7 @@ Page({
 		console.log('还书');
 		let that = this;
 		tt.request({
-			url: 'http://localhost:8080/users/book/' + bookId, // 目标服务器url
+			url: 'http://120.26.91.143:8080/users/book/' + bookId, // 目标服务器url
 			method: 'PUT',
 			success: (res) => {
 				let list = that.data.bookList;
