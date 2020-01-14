@@ -5,10 +5,7 @@ const pageSize=2;
 
 Page({
   data: {
-    book: '../../image/book.png',
-    book1: '../../image/book1.jpg',
-    book2: '../../image/book2.jpg',
-    book3: '../../image/book3.jpg',
+  
     avi: '可借阅图书',
     lended: '借出图书',
     date: '上架日期',
@@ -16,6 +13,7 @@ Page({
 
     pageNum:1,
     bookList:[],
+    hotBooks:[],
     loading:false,
     loaded:false,
 
@@ -47,6 +45,7 @@ Page({
 
   onLoad: function () {
     this.getUnBorrowedBooks();
+    this.getHotBooks();
   },
 
   onShow:function(){
@@ -102,6 +101,7 @@ Page({
   
   //点击图书事件
   onBorrowBook:function(e){
+    console.log('点击图书事件');
     console.log(e);
     let bookId=e.currentTarget.dataset.id;
     tt.setStorageSync('book_id', bookId);
@@ -123,6 +123,21 @@ Page({
         that.setData({
           bookList:res.data.list
         })
+      }
+    });
+  },
+
+  //获取热门图书
+  getHotBooks:function(){
+    let that=this;
+    tt.request({
+      url: 'http://120.26.91.143:8080/users/books/hot', // 目标服务器url
+      success: (res) => {
+        that.setData({
+          hotBooks:res.data
+        })
+        console.log('热门图书');
+        console.log(that.data.hotBooks);
       }
     });
   }
