@@ -57,6 +57,7 @@ Page({
       loaded:false
     })
     this.getUnBorrowedBooks();
+    this.getHotBooks();
     tt.setStorageSync('updated', false);
     }
   },

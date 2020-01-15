@@ -56,6 +56,16 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(options);
+    // 获取参数
+    if(options.scenn){
+      let scene=decodeURIComponent(options.scene);
+      let paramArr=scene.split('&');
+      let bookId=paramArr[2].split('=')[1];
+      console.log('bookId:'+bookId);
+      that.setData({
+        bookId:bookId
+      })
+    }
     //登录
     tt.login({
       success(res) {
