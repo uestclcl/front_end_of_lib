@@ -54,18 +54,22 @@ Page({
 
   //加载页面
   onLoad: function (options) {
-    var that = this;
+
+    console.log("onLoad");
     console.log(options);
-    // 获取参数
-    if(options.scenn){
+    var that = this;
+    // 获取页面参数
+    if(options.scene){
       let scene=decodeURIComponent(options.scene);
-      let paramArr=scene.split('&');
-      let bookId=paramArr[2].split('=')[1];
+      let paramArr=scene.split('?');
+      let bookId=paramArr[1].split('=')[1];
       console.log('bookId:'+bookId);
       that.setData({
         bookId:bookId
       })
     }
+    //获取globalData
+  
     //登录
     tt.login({
       success(res) {

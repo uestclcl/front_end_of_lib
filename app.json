@@ -1,7 +1,7 @@
 {
   "pages":[
-    "page/index/index",
     "page/library/index",
+    "page/index/index",
     "page/user/index"
   ],
   "window": {

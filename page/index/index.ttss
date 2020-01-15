@@ -17,9 +17,11 @@
   width: 75%;
 }
 .pic{
+  margin: 0 auto;
+  padding-top: 50rpx;
   text-align: center;
-      /* height:600rpx; */
-      /* width: 500rpx; */
+  height:700rpx; 
+  width: 600rpx;
 }
 .btn{
    color: #33FF;

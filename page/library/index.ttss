@@ -1,3 +1,7 @@
+page{
+  background-color: #f1f1f1
+}
+
 .container{
   background-color: #99CCFF;
     height:450rpx;
@@ -5,6 +9,7 @@
 }
 .content{
   text-align: center;
+  background-color: #f1f1f1;
 }
 .intro {
   margin: 30px;
@@ -21,7 +26,7 @@ swiper{
 }
 
 .title {
-    margin-top: 20rpx;
+  margin-top: 20rpx;
   text-align: center;
   font-size: 40rpx;
   font-weight: bold;
@@ -64,4 +69,50 @@ swiper{
   margin: 20rpx auto;
   font-size: 14px;
   text-align: center;
+}
+
+/* 书架样式 */
+.section{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background-color: #fff;
+  display: block; 
+  justify-content: space-around;
+}
+
+.profile{
+  display: flex;
+}
+
+.return{
+    font-weight: bold;
+       color: #33FF;
+}
+.book{
+  width: 310rpx;
+  height: 350rpx;
+  margin-right: 15rpx;
+}
+
+.note{
+  margin-left: 15rpx;
+  padding-top: 30rpx;
+  width: 310rpx;
+}
+
+.label{
+  font-size: 40rpx;
+  text-align: center;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+.book-name{
+  font-weight: bolder;
 }
