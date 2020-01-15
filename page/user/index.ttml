@@ -24,7 +24,7 @@
 			<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
 				<view class="section">
 					<view class="profile">
-						<image src="{{item.bookUrl}}" mode="" class="book" />
+						<image src="{{imgUrlPrefix}}{{item.bookUrl}}" mode="" class="book" />
 						<view class="note">
 							<view class="label">{{item.bookName}}</view>
 							<view class="label">{{item.borrowedTime}}</view>

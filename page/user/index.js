@@ -4,6 +4,7 @@ const iGetUserInfo = i18n.get_user_info
 var app = getApp()
 Page({
 	data: {
+		imgUrlPrefix:app.globalData.imgUrlPrefix,
 		hasUserInfo: false,
 		withCredentials: false,
 		userInfo: {},

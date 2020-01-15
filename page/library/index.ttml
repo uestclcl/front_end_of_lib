@@ -11,7 +11,7 @@
 					<block tt:for="{{hotBooks}}" tt:key="{{item.bookId}}">
 						<swiper-item catchtap="onBorrowBook" data-id={{item.bookId}}>
 							<view class="swiper-item" bintap="onBorrowBook" data-id={{item.bookId}} >
-								<image mode="aspectFit" src="{{item.bookUrl}}" />
+								<image mode="aspectFit" src="{{imgUrlPrefix}}{{item.bookUrl}}" />
 							</view>
 						</swiper-item>
 					</block>
@@ -24,7 +24,7 @@
 	<view class="content">
 		<block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
 			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
-				<image mode="aspectFit" src="{{item.bookUrl}}" />
+				<image mode="aspectFit" src="{{imgUrlPrefix}}{{item.bookUrl}}" />
 			</view>
 		</block>
 		<view class="load_more" hidden="{{!loading}}">

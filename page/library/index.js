@@ -5,7 +5,7 @@ const pageSize=2;
 
 Page({
   data: {
-  
+    imgUrlPrefix:app.globalData.imgUrlPrefix,
     avi: '可借阅图书',
     lended: '借出图书',
     date: '上架日期',

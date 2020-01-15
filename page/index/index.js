@@ -1,11 +1,12 @@
 const app = getApp()
 
+
 Page({
   data: {
     bookUrl: '',
     usname: '用户',
     bookname: '',
-    bookId: '00001',
+    bookId: '12383',
     author: '',
     addedTime: '',
     state: '',
@@ -13,7 +14,7 @@ Page({
     hasLogin: false,
     code: tt.getStorageSync('login.code'),
     userInfo: {},
-
+    imgUrlPrefix:app.globalData.imgUrlPrefix
   },
 
   //借书  
@@ -54,6 +55,7 @@ Page({
   //加载页面
   onLoad: function (options) {
     var that = this;
+    console.log(options);
     //登录
     tt.login({
       success(res) {
@@ -101,7 +103,7 @@ Page({
           addedTime: res.data.addedTime,
           state: res.data.borrowed ? '已借出' : '可借阅',
           submit: res.data.borrowed ? '不可借' : '借书',
-          bookUrl: res.data.bookUrl
+          bookUrl: that.data.imgUrlPrefix+res.data.bookUrl
         })
       }
     });
