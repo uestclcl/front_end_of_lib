@@ -7,7 +7,6 @@
   margin: 0px;
   text-align: center;
 }
-
 .bookName {
   margin: 0px;
   text-align: center;
@@ -19,6 +18,7 @@
 .pic{
   margin: 0 auto;
   padding-top: 50rpx;
+  padding-bottom:80rpx;
   text-align: center;
   height:700rpx; 
   width: 600rpx;

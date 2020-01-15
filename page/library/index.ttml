@@ -22,7 +22,7 @@
 	</view>
 	
 	<view class="content">
-		<view class="title">可借图书</view>
+		<view class="title">可 借 图 书</view>
 		<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
 				<view class="section">
 					<view class="profile" bindtap="onBorrowBook" data-id={{item.bookId}}>

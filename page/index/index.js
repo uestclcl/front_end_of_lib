@@ -40,7 +40,10 @@ Page({
     });
   },
 
-  onShow: function () {
+  onShow: function (options) {
+    console.log('onShow:');
+    console.log(options);
+
     let that = this;
     //设置bookId
     let bookId = tt.getStorageSync('book_id');
@@ -58,18 +61,12 @@ Page({
     console.log("onLoad");
     console.log(options);
     var that = this;
-    // 获取页面参数
-    if(options.scene){
-      let scene=decodeURIComponent(options.scene);
-      let paramArr=scene.split('?');
-      let bookId=paramArr[1].split('=')[1];
-      console.log('bookId:'+bookId);
+    if(options.bookId){
       that.setData({
         bookId:bookId
       })
     }
-    //获取globalData
-  
+
     //登录
     tt.login({
       success(res) {
