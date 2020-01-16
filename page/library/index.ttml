@@ -24,17 +24,26 @@
 	<view class="content">
 		<view class="title">可 借 图 书</view>
 		<block tt:for="{{bookList}}" tt:key="{{item.bookId}}">
-				<view class="section">
-					<view class="profile" bindtap="onBorrowBook" data-id={{item.bookId}}>
-						<image src="{{imgUrlPrefix}}{{item.bookUrl}}" mode="" class="book" />
+				<view class="section"  bindtap="onBorrowBook" data-id={{item.bookId}}>
+						<view class="book">
+							<image src="{{imgUrlPrefix}}{{item.bookUrl}}" mode="aspectFit" class="img"/>
+						</view>
 						<view class="note">
 							<view class="label book-name">{{item.bookName}}</view>
 							<view class="label">{{item.author}}</view>
 							<view class="label">{{item.addedTime}}</view>
 						</view>
-					</view>
 				</view>	
-			</block>
+		</block>
+
+
+		<!-- <block tt:for='{{bookList}}' tt:key='{{item.bookId}}'>
+			<view class="section" bindtap="onBorrowBook" data-id={{item.bookId}}>
+				<image mode="aspectFit" src="{{imgUrlPrefix}}{{item.bookUrl}}" />
+			</view>
+		</block> -->
+
+
 		<view class="load_more" hidden="{{!loading}}">
 			<view class="load_loading"></view>
 			<view class="load-tips">正在加载……</view>

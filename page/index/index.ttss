@@ -1,14 +1,14 @@
 .intro {
-  margin: 10px;
+  margin: 10rpx;
   text-align: center;
   font-weight: bold;
 }
 .label {
-  margin: 0px;
+  margin: 0rpx;
   text-align: center;
 }
 .bookName {
-  margin: 0px;
+  margin: 0rpx;
   text-align: center;
     font-weight: bold;
 }

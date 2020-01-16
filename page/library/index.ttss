@@ -77,40 +77,33 @@ swiper{
   margin-bottom: 20rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+  
   background-color: #fff;
-  display: block; 
-  justify-content: space-around;
 }
 
-.profile{
-  display: flex;
-}
-
-.return{
-    font-weight: bold;
-       color: #33FF;
-}
 .book{
-  width: 310rpx;
-  height: 350rpx;
-  margin-right: 15rpx;
+  display: inline-block;
+  width: 300rpx;
+  height: 300rpx;
+  margin-right: 10rpx;
+  margin-top: 20rpx;
+}
+
+.img{
+  width: 300rpx;
 }
 
 .note{
-  margin-left: 15rpx;
-  padding-top: 30rpx;
-  width: 310rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 300rpx;
 }
 
 .label{
   font-size: 40rpx;
   text-align: center;
-  padding-top: 10rpx;
-  padding-bottom: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 50rpx;
 }
 
 .book-name{
