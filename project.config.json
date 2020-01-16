@@ -7,5 +7,23 @@
 		"newFeature": true
 	},
 	"appid": "cli_9d67ac32ca2b9108",
-	"projectname": "library"
+	"projectname": "library",
+	"condition": {
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "二维码扫描",
+					"pathName": "page/index/index",
+					"query": "bookId=12383",
+					"scene": "1011",
+					"referrerInfo": {
+						"appId": "",
+						"extraData": ""
+					}
+				}
+			]
+		}
+	}
 }

@@ -51,6 +51,7 @@ Page({
       that.setData({
         bookId: bookId
       })
+      tt.setStorageSync('book_id','');
     }
     that.getBook();
   },
@@ -60,12 +61,20 @@ Page({
     console.log("onLoad:");
     console.log(options);
     var that = this;
-    if (options.scene != undefined) {   //飞书直接扫码
-      var scan_url = decodeURIComponent(options.scene);
-      console.log(scan_url);
+    // if (options.scene != undefined) {   //飞书直接扫码
+    //   var scan_url = decodeURIComponent(options.scene);
+    //   console.log(scan_url);
+    //   that.setData({
+    //     // goods_id: this.getQueryString(scan_url, 'id'),
+    //     bookId: this.getQueryString(scan_url, 'bookId')
+    //   })
+    // }
+
+    console.log(options.bookId);
+
+    if(options.bookId){
       that.setData({
-        // goods_id: this.getQueryString(scan_url, 'id'),
-        bookId: this.getQueryString(scan_url, 'bookId')
+        bookId:options.bookId
       })
     }
 
