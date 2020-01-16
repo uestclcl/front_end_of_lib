@@ -114,18 +114,18 @@ Page({
   },
 
   //获取查询参数
-  getQueryString: function (url, name) {
-    // console.log("url = " + url);
-    // console.log("name = " + name);
-    var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i');
-    var r = url.substr(1).match(reg);
-    if (r != null) {
-      // console.log("r = " + r)
-      // console.log("r[2] = " + r[2])
-      return r[2];
-    }
-    return null;
-  },
+  // getQueryString: function (url, name) {
+  //   // console.log("url = " + url);
+  //   // console.log("name = " + name);
+  //   var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i');
+  //   var r = url.substr(1).match(reg);
+  //   if (r != null) {
+  //     // console.log("r = " + r)
+  //     // console.log("r[2] = " + r[2])
+  //     return r[2];
+  //   }
+  //   return null;
+  // },
 
   //获取图书信息
   getBook: function () {

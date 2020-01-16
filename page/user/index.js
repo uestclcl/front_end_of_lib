@@ -18,6 +18,14 @@ Page({
 		...iGetUserInfo
 	},
 
+	onShow:function(){
+		var that=this;
+		if(tt.getStorageSync('updated')){
+			that.getBorrowedBooks();
+			tt.setStorageSync('updated', false);	
+		}
+	},
+
 	onLoad: function () {
 		var that = this;
 		console.log('getUserInfo start');

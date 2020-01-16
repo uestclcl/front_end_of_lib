@@ -1,7 +1,7 @@
 import i18n from '../i18n/index'
 const swiper = i18n.swiper
 const app = getApp()
-const pageSize=2;
+const pageSize=5;
 
 Page({
   data: {
