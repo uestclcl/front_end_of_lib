@@ -57,13 +57,15 @@ Page({
 
   //加载页面
   onLoad: function (options) {
-
-    console.log("onLoad");
+    console.log("onLoad:");
     console.log(options);
     var that = this;
-    if(options.bookId){
+    if (options.scene != undefined) {   //飞书直接扫码
+      var scan_url = decodeURIComponent(options.scene);
+      console.log(scan_url);
       that.setData({
-        bookId:bookId
+        // goods_id: this.getQueryString(scan_url, 'id'),
+        bookId: this.getQueryString(scan_url, 'bookId')
       })
     }
 
@@ -100,6 +102,20 @@ Page({
         }
       }
     });
+  },
+
+  //获取查询参数
+  getQueryString: function (url, name) {
+    // console.log("url = " + url);
+    // console.log("name = " + name);
+    var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i');
+    var r = url.substr(1).match(reg);
+    if (r != null) {
+      // console.log("r = " + r)
+      // console.log("r[2] = " + r[2])
+      return r[2];
+    }
+    return null;
   },
 
   //获取图书信息
